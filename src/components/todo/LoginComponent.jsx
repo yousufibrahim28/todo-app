@@ -7,7 +7,7 @@ function LoginComponent() {
 
     const [username, setUsername] = useState('yousuf28')
     const [password, setPassword] = useState('')
-    
+
     const [showErrorMessage, setShowErrorMessage] = useState(false)
 
     const naviagte = useNavigate();
@@ -22,8 +22,8 @@ function LoginComponent() {
         setPassword(event.target.value)
     }
 
-    function handleSubmit() {
-        if(authContext.login(username,password)) {
+    async function handleSubmit() {
+        if(await authContext.login(username,password)) {
             naviagte(`/welcome/${username}`)
 
         } else {
